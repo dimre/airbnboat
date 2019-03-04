@@ -1,2 +1,8 @@
-<h1>Boats#show</h1>
-<p>Find me in app/views/boats/show.html.erb</p>
+<div class="container">
+  <h1><%= @boat.name %></h1>
+  <p><strong>Description:</strong> <%= @boat.description %> </p>
+  <p><strong>Located in: </strong><%= @boat.address.capitalize %> </p>
+  <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
+  <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
+  <p><strong>Have a look: </strong></p><br>
+</div>
