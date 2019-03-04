@@ -6,7 +6,7 @@
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
   <div class="card-trip-infos">
     <div>
-      <h2><%= boat.name %></h2>
+      <h2><%= link_to boat.name, boat_path(boat) %></h2>
       <p><%= boat.description %></p>
     </div>
     <h2 class="card-trip-pricing"><%= boat.price_per_day %> euros/day</h2>
