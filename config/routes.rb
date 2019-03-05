@@ -6,3 +6,5 @@ Rails.application.routes.draw do
   	resources :photos, only: ['new', 'create']
   end
 end
+
+ # my_collection_boats GET    /boats/my_collection(.:format)                                                           boats#my_collection
