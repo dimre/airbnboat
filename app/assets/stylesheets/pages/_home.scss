@@ -10,5 +10,15 @@
     padding: 60px;
     font-weight: bold;
   }
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    opacity: 0.9;
+    padding: 20px;
+    margin-right: 850px;
+    margin-left: 30px;
+    border-radius: 1%;
+  }
 }
 
