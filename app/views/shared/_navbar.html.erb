@@ -10,11 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "My boats", boats_path(nil, user_id: current_user.id), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Add a boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
