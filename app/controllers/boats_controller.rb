@@ -2,7 +2,11 @@ class BoatsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @boats = Boat.all
+    if params[:country]
+      @boats = Boat.where('country LIKE ?', "#{params[:country]}")
+    else
+      @boats = Boat.all
+    end
   end
 
   def show
