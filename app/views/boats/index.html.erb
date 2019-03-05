@@ -1,9 +1,12 @@
 <h1>Check out our boats</h1>
 
-
 <% @boats.each do |boat| %>
  <div class="card-trip col-xs-12 col-md-6">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+   <%if !boat.photos&.first&.photo_url&.url.nil? %>
+     <%= cl_image_tag boat.photos&.first&.photo_url.url(:index) %>
+   <% else %>
+     <%= image_tag "https://static1.squarespace.com/static/50209ef6e4b098a90b8e2a97/515114f8e4b0b73e82364c5a/515117dde4b01fd1f7061bf1/1364269023891/J1500x1104-12479.jpg?format=1500w" %>
+   <% end %>
   <div class="card-trip-infos">
     <div>
       <h2><%= link_to boat.name, boat_path(boat) %></h2>
@@ -12,5 +15,5 @@
     <h2 class="card-trip-pricing"><%= boat.price_per_day %> euros/day</h2>
     <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
   </div>
-</div>
+ </div>
 <% end %>
