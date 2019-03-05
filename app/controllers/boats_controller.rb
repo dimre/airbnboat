@@ -25,4 +25,10 @@ class BoatsController < ApplicationController
 
   def update
   end
+
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to boats_path
+  end
 end

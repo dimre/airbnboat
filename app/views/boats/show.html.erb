@@ -6,4 +6,7 @@
   <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
   <p><strong>Have a look: </strong></p><br>
   <p><%= link_to "Back to the boats", boats_path %></p>
+  <% if @boat.user == current_user %>
+    <p><%= link_to "Boat destroy", boat_path(@boat), method: :delete %></p>
+  <% end %>
 </div>

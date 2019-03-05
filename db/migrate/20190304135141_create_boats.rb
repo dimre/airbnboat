@@ -6,7 +6,7 @@ class CreateBoats < ActiveRecord::Migration[5.2]
       t.integer :capacity
       t.string :description
       t.integer :price_per_day
-
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
