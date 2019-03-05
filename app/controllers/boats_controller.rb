@@ -37,4 +37,10 @@ class BoatsController < ApplicationController
     @boat.destroy
     redirect_to boats_path
   end
+
+  private
+
+  def boat_params
+    params.require(:boat).permit(:name, :address, :capacity, :description, :price_per_day)
+  end
 end
