@@ -2,10 +2,12 @@ class BoatsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @boats = Boat.all
     if params[:country]
-      @boats = Boat.where('country LIKE ?', "#{params[:country]}")
-    else
-      @boats = Boat.all
+      @boats = @boats.where('country LIKE ?', "#{params[:country]}")
+    end
+    if params[:user_id] == current_user.id
+      @boats = @boats.where(user: current_user)
     end
   end
 
