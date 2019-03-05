@@ -5,6 +5,9 @@
   <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
   <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
   <p><strong>Have a look: </strong></p><br>
+  <% @boat.photos.each do |photo|  %>
+  	<%= cl_image_tag photo.photo_url.url(:show) %>
+  <% end %>
   <p><%= link_to "Back to the boats", boats_path %></p>
   <% if @boat.user == current_user %>
     <p><%= link_to "Boat destroy", boat_path(@boat), method: :delete %></p>
