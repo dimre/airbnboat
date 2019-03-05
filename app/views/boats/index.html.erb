@@ -13,7 +13,7 @@
       <p><%= boat.description %></p>
     </div>
     <h2 class="card-trip-pricing"><%= boat.price_per_day %> euros/day</h2>
-    <%= cl_image_tag boat.user.photo_url.url(:show), class: "card-trip-user avatar-bordered" %>
+    <%= cl_image_tag boat.user.photo_url.url, class:"card-trip-user avatar-bordered" %>
   </div>
  </div>
 <% end %>
