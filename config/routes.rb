@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :boats do
   	resources :photos, only: ['new', 'create']
   end
-  delete "boat/:id", to: "boat#destroy"
 end

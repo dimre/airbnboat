@@ -2,8 +2,9 @@
 <%= simple_form_for [@boat] do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
+  <%= f.text_field :country %>
   <%= f.input :capacity %>
   <%= f.input :description %>
   <%= f.input :price_per_day %>
   <%= f.submit "Add boat" %>
-<% end %>
+<% end %>  
