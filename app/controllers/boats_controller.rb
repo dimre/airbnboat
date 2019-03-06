@@ -6,7 +6,7 @@ class BoatsController < ApplicationController
     if params[:country]
       @boats = @boats.where('country LIKE ?', "#{params[:country]}")
     end
-    if params[:user_id] == current_user.id
+    if params[:user_id].to_i == current_user.id
       @boats = @boats.where(user: current_user)
     end
   end

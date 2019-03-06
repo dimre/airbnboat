@@ -1,4 +1,4 @@
-<div class="navbar-wagon ">
+<div class="navbar-wagon-transparent navbar-fixed-top ">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo-boat.jpg" %>
@@ -9,7 +9,7 @@
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
+      <!-- Links when logged in -->,
       <%= link_to "Add a boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
@@ -61,3 +61,4 @@
     </div>
   </div>
 </div>
+
