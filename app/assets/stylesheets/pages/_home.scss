@@ -1,8 +1,20 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
 .banner {
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 30%), url('https://images.unsplash.com/photo-1480742444427-f4bb0573e315?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1491&q=80');
   background-size: cover;
   height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+
   h1 {
     margin: 0px;
     color: white;
@@ -21,4 +33,97 @@
     border-radius: 1%;
   }
 }
+
+
+
+a.btn:hover {
+  background: #1ebbff;
+  border: 1px solid #1ebbff;
+  color: #fff;
+}
+
+.cover  {
+  height: 100vh;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.flex-form input[type="submit"] {
+  background: #1ebbff;
+  border: 1px solid #1ebbff;
+  color: #fff;
+  padding: 0 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.flex-form input[type="submit"]:hover {
+  background: #1ebbff;
+  border: 1px solid #1ebbff;
+}
+
+.flex-form {
+  display: -webkit-box;
+  display: flex;
+  z-index: 10;
+  position: relative;
+  width: 500px;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.flex-form > * {
+  border: 0;
+  padding: 0 0 0 10px;
+  background: #fff;
+  line-height: 50px;
+  font-size: 1rem;
+  border-radius: 0;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+input[type="search"] {
+  flex-basis: 500px;
+}
+
+#madeby {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 25px 100px;
+  color: #fff;
+}
+
+@media all and (max-width:800px) {
+    body {
+      font-size: 0.9rem;
+    }
+
+    .flex-form {
+      width: 100%;
+    }
+
+    input[type="search"] {
+      flex-basis: 100%;
+    }
+
+    .flex-form > * {
+      font-size: 0.9rem;
+    }
+  }
+
 
