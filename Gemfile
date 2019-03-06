@@ -20,7 +20,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'country_select', '~> 4.0'
-
+gem "geocoder"
 
 
 group :development do
