@@ -1,5 +1,6 @@
 function changeNavbarOnScroll() {
 	const navbar = document.querySelector(".navbar-wagon-transparent")
+	if(navbar){ 
 	window.addEventListener("scroll", () => {
         if (window.scrollY >= window.innerHeight) {
         navbar.classList.add('navbar-wagon-white');
@@ -8,6 +9,7 @@ function changeNavbarOnScroll() {
       }
 
 	});
+	}
 }
 
 export { changeNavbarOnScroll } 

@@ -1,4 +1,4 @@
 import "bootstrap";
-import { changeNavbarOnScroll } from '../components/navbar_main';
+import { changeNavbarOnScroll } from '../components/navbar';
 
 changeNavbarOnScroll();
