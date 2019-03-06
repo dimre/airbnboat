@@ -14,11 +14,11 @@ dimi = User.create(email: 'dimitri.reisinger@hotmail.com', first_name: "dimi", l
 yoni = User.create(email: 'zatalo@live.be', first_name: "yoni", last_name: "zata", password: "123456")
 thomas = User.create(email: 'thomas.cortebeeck93@gmail.com', first_name: "thomas", last_name: "cort", password: "123456")
 
-batmoboat = Boat.create(name: "Batmo boat", country: "United States", address: "Gotham", capacity: 2, description:"The bat boat", price_per_day: 50, user_id: User.last.id)
-cousteauboat = Boat.create(name: "Cousteau boat", country: "France", address: "Brittany", capacity: 5, description:"The red bonnet boat", price_per_day: 25, user_id: User.first.id)
-pedalo = Boat.create(name: "Pedalo bro", country: "England", address: "Hyde Park", capacity: 2, description:"It does not float", price_per_day: 10, user_id: User.last.id)
-titanic = Boat.create(name: "Titanic", country: "England", address: "Iceberg street", capacity: 12, description:"We might sink - hold on jack", price_per_day: 80, user_id: User.first.id)
-hoboeboat = Boat.create(name: "Hoboe boat", country: "Belgium", address: "Molenbeek", capacity: 15, description:"You don't want to rent this", price_per_day: 2, user_id: User.last.id)
+batmoboat = Boat.create(name: "Batmo boat", country: "United States", address: "1 Bleecker Street New York", capacity: 2, description:"The bat boat", price_per_day: 50, user_id: User.last.id)
+cousteauboat = Boat.create(name: "Cousteau boat", country: "France", address: "1 Rue du Port Le Havre", capacity: 5, description:"The red bonnet boat", price_per_day: 25, user_id: User.first.id)
+pedalo = Boat.create(name: "Pedalo bro", country: "England", address: "1 Hyde Park Street London", capacity: 2, description:"It does not float", price_per_day: 10, user_id: User.last.id)
+titanic = Boat.create(name: "Titanic", country: "England", address: "1 London Road Southampton", capacity: 12, description:"We might sink - hold on jack", price_per_day: 80, user_id: User.first.id)
+hoboeboat = Boat.create(name: "Hoboe boat", country: "Belgium", address: "1 Rue de Molenbeek Brussels", capacity: 15, description:"You don't want to rent this", price_per_day: 2, user_id: User.last.id)
 
 batman_pic = Photo.create(remote_photo_url_url: 'http://www.realclearlife.com/wp-content/uploads/2016/11/Batboat-3_1200.jpg', boat_id: 1)
 cousteau_pic = Photo.create(remote_photo_url_url: 'https://www.bateaux.com/src/images/news/articles/ee73cf54413939fc748cb82c45770252.jpg', boat_id: 2)
