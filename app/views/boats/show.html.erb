@@ -1,16 +1,25 @@
 <div class="container">
-  <h1><%= @boat.name %></h1>
-  <p><strong>Description:</strong> <%= @boat.description %> </p>
-  <p><strong>Located in: </strong><%= @boat.address.capitalize %> (<%= @boat.country %>)</p>
-  <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
-  <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
-  <p><strong>Have a look: </strong></p><br>
-  <% @boat.photos.each do |photo|  %>
-  	<%= cl_image_tag photo.photo_url.url(:show) %>
-  <% end %>
-  <p> <%= link_to "Add a picture", new_boat_photo_path(@boat) %></p>
-  <p><%= link_to "Back to the boats", boats_path %></p>
-  <% if @boat.user == current_user %>
-    <p><%= link_to "Boat destroy", boat_path(@boat), method: :delete %></p>
-  <% end %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @boat.name %></h1>
+      <p><strong>Description:</strong> <%= @boat.description %> </p>
+      <p><strong>Located in: </strong><%= @boat.address.capitalize %> (<%= @boat.country %>)</p>
+      <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
+      <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
+      <p><strong>Have a look: </strong></p><br>
+      <% @boat.photos.each do |photo|  %>
+      	<%= cl_image_tag photo.photo_url.url(:show) %>
+      <% end %>
+      <p> <%= link_to "Add a picture", new_boat_photo_path(@boat) %></p>
+      <p><%= link_to "Back to the boats", boats_path %></p>
+      <% if @boat.user == current_user %>
+        <p><%= link_to "Boat destroy", boat_path(@boat), method: :delete %></p>
+      <% end %>
+      <p> <%= link_to "Book this boat", new_boat_booking_path(@boat) %></p>
+      <p>Existing bookings for this boat:</p>
+      <% @boat.bookings.each do |booking| %>
+      <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+      <% end %>
+    </div>
+  </div>
 </div>

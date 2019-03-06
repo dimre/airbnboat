@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Your bookings</h1>
+    <% @bookings.each do |booking| %>
+    <div class="card-trip col-xs-12 col-md-6">
+      <%= cl_image_tag booking.boat.photos&.first&.photo_url.url(:index) %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= booking.boat.name %></h2>
+          <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= booking.boat.price_per_day %> euros/day</h2>
+        <%= cl_image_tag booking.boat.user.photo_url.url, class:"card-trip-user avatar-bordered" %>
+      </div>
+    </div>
+<% end %>
+</div>
+
