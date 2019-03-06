@@ -1,6 +1,6 @@
-<div class="navbar-wagon-transparent navbar-fixed-top ">
+<div class=" navbar-wagon navbar-wagon-transparent  navbar-fixed-top ">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+ <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo-boat.jpg" %>
   <% end %>
 
@@ -9,10 +9,9 @@
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->,
+      <!-- Links when logged in -->
       <%= link_to "Add a boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -26,7 +25,7 @@
             </li>
             <li>
               <%= link_to boats_path(nil, user_id: current_user.id) do %>
-                <i class="fa fa-ship"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-ship"></i> <%= t(".profile", default: "My boats") %>
               <% end %>
             </li>
             <li>
@@ -44,6 +43,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to "All boats", boats_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
@@ -61,4 +61,3 @@
     </div>
   </div>
 </div>
-
