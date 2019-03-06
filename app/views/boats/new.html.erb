@@ -1,11 +1,16 @@
-<h1>Add a boat</h1>
-<%= simple_form_for [@boat] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.label "Country" %>
-  <%= f.text_field :country %>
-  <%= f.input :capacity %>
-  <%= f.input :description %>
-  <%= f.input :price_per_day %>
-  <%= f.submit "Add boat" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>Add a boat</h1>
+      <%= simple_form_for [@boat] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :country %>
+        <%= f.input :capacity %>
+        <%= f.input :description %>
+        <%= f.input :price_per_day %>
+        <%= f.submit "Add boat", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
