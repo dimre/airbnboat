@@ -23,6 +23,7 @@
   <p><%= link_to "Back to the boats", boats_path %></p>
   <p> <%= link_to "Write a review", new_boat_review_path(@boat) %></p>
   <% if @boat.user == current_user %>
-    <p><%= link_to "Boat destroy", boat_path(@boat), method: :delete %></p>
+    <p> <%= link_to "Add a picture", new_boat_photo_path(@boat) %></p>
+    <p><%= link_to "Remove this boat", boat_path(@boat), method: :delete %></p>
   <% end %>
 </div>

@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="widget-content" data-unavailable="<%= @boat.unavailable_dates.to_json %>"></div>
       <h1>Add a booking for the <%= @boat.name %></h1>
-      <%= simple_form_for [@boat, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true %>
-        <%= f.input :end_date, as: :date, html5: true %>
-        <%= f.submit "Book this boat", class: "btn btn-primary" %>
-      <% end %>
+      <%= simple_form_for([@boat, @booking]) do |f| %>
+      <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+      <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+      <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
+    <% end %>
     </div>
   </div>
 </div>
+
