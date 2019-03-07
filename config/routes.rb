@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :boats do
   	resources :photos, only: ['new', 'create']
     resources :bookings, only: [ 'new', 'create']
-    resources :review, only: ['new', 'create']
+    resources :reviews, only: ['new', 'create']
   end
   resources :bookings, only: ['index']
 end
