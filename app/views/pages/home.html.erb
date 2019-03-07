@@ -1,14 +1,9 @@
-
 <div class="banner">
   <h1>AirBnBoat</h1>
   <%= form_tag(boats_path, method: "get", class: 'flex-form') do %>
-     <!--  <label for="from"> -->
-        <i class="ion-location"></i>
-      </label>
-      <%= text_field_tag(:country, nil, type: 'search', placeholder: "Where do you want to go?") %>
+    <%= text_field_tag(:country, nil, type: 'search', placeholder: "Where ?") %>
+    <%= date_field_tag(:start_date) %>
+    <%= date_field_tag(:end_date) %>
     <%= submit_tag("Search", name: nil) %>
   <% end %>
-</div>
-
-<div class="container">
 </div>

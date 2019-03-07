@@ -1,5 +1,22 @@
 <h1>Check out our boats</h1>
-
+<div class="jumbotron">
+<div id="slider-price">
+  <%= form_tag(boats_path, method: "get", class: 'flex-slider') do %>
+    <%= label_tag :price_per_day, "What is the maximum price you are willing to pay?" %>
+    <%= hidden_field_tag :min_price %>
+    <%= hidden_field_tag :max_price %>
+</div>
+</div>
+<div class="jumbotron">
+<div id="slider-capacity">
+    <%= label_tag :capacity, "What capacity would you like to have?" %>
+    <%= hidden_field_tag :capacity_low %>
+    <%= hidden_field_tag :capacity_high %>
+    <%= submit_tag("Filter", name: nil) %>
+    <% end %>
+</div>
+</div>
+ 
 <% @boats.each do |boat| %>
  <div class="card-trip col-xs-12 col-md-6">
    <%if !boat.photos&.first&.photo_url&.url.nil? %>
