@@ -5,12 +5,9 @@
 		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 			<%= simple_form_for [@boat, @photo] do |f| %>
 			<%= f.input :photo_url, as: :file %>
-			  <%= f.input :photo_url_cache, as: :hidden %>
+			<%= f.input :photo_url_cache, as: :hidden %>
 			<%= f.submit "Add photo", class: "btn btn-primary" %>
 			<% end %>	
 		</div>	
 	</div>
 </div>
-
-
-

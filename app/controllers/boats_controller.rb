@@ -9,6 +9,12 @@ class BoatsController < ApplicationController
     if current_user && params[:user_id].to_i == current_user.id
       @boats = @boats.where(user: current_user)
     end
+    if params[:min_price] && params[:max_price]
+      @boats = @boats.where(price_per_day: params[:min_price]..params[:max_price])
+    end 
+    if params[:capacity_low] && params[:capacity_high]
+      @boats = @boats.where(capacity: params[:capacity_low]..params[:capacity_high])
+    end
   end
 
   def show
