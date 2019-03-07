@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="row">
+  <div class="row" id="add-boat">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1>Add a boat</h1>
       <%= simple_form_for [@boat] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :country %>
-        <%= f.input :capacity %>
-        <%= f.input :description %>
-        <%= f.input :price_per_day %>
-        <%= f.submit "Add boat", class: "btn btn-primary" %>
+        <%= f.input :name, placeholder: "Name", label: false  %>
+        <%= f.input :address, placeholder: "Address", label: false %>
+        <%= f.input :country, label: false %>
+        <%= f.input :capacity, placeholder: "Capacity", label: false  %>
+        <%= f.input :description, placeholder: "Description", label: false  %>
+        <%= f.input :price_per_day, placeholder: "Price per day", label: false  %>
+        <%= f.submit "Add boat", class: "btn btn-primary", value: "Submit" %>
       <% end %>
     </div>
   </div>
