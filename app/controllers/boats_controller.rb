@@ -4,6 +4,7 @@ class BoatsController < ApplicationController
   def index
     @boats = Boat.all
     if params[:country]
+      @boats = @boats.where('country LIKE ?', "#{params[:country]}")
     end
     if current_user && params[:user_id].to_i == current_user.id
       @boats = @boats.where(user: current_user)
