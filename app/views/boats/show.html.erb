@@ -5,7 +5,7 @@
         <p><%= cl_image_tag @boat.user.photo_url.url(:avatar)%></p>
       </div>
       <div class="user">
-        <p> <%= @boat.user.first_name %> </p>
+        <p> <%= link_to @boat.user.first_name, profile_path(@boat.user.profile.slug) %> </p>
       </div>
     </div>
       <div class="show-name">
@@ -14,13 +14,45 @@
       <div class="boat-links">
         <p> <%= link_to "Back to the boats", boats_path, class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %> </p>
         <p> <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
+        <p> <%= link_to "Write a review", new_boat_review_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %> </p>
       </div>
   </div>
-  <% @boat.photos.each do |photo|  %>
-  	<%= cl_image_tag photo.photo_url.url(:show) %>
-  <% end %>
-  <p><strong>Description:</strong> <%= @boat.description %> </p>
-  <p><strong>Located in: </strong><%= @boat.address.capitalize %> (<%= @boat.country %>)</p>
+  <div class="boat-info">
+    <div class="boat-photo">
+      <% @boat.photos.each do |photo|  %>
+      	<%= cl_image_tag photo.photo_url.url(:show) %>
+      <% end %>
+    </div>
+    <div class="boat-carac">
+      <p><strong>Description:</strong> <%= @boat.description %> </p>
+      <p><strong>Located in: </strong><%= @boat.address.capitalize %> (<%= @boat.country %>)</p>
+      <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
+      <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
+      <% if @boat.user == current_user %>
+        <p> <%= link_to "Add a picture", new_boat_photo_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
+        <p><%= link_to "Remove this boat", boat_path(@boat), method: :delete, class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
+        <% end %>
+    </div>
+  </div>
+  <h3>Reviews:</h3>
+<% @boat.reviews.each do |review| %>
+      <ul class="inbox">
+        <li class="message">
+          <%= cl_image_tag @boat.user.photo_url.url(:avatar)%>
+          <div class="message-name">
+            <h3><%= review.user.first_name %></h3>
+          </div>
+          <div class="message-body">
+            <p><%= review.content %></p>
+          </div>
+        <div class="message-status">
+          <h6>Rating</h6>
+          <h6><%= review.rating %></h6>
+        </div>
+        </li>
+      </ul>
+      <% end %>
+
   <div
   id="map"
   style="width: 100%;
@@ -28,27 +60,9 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-  <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
-  <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
-  <div id="reviews">
-    <% if @boat.reviews.blank? %>
-     <p>Be the first to leave a review for <%= @boat.name %></p>
-    <% else %>
-     <% @boat.reviews.each do |review| %>
-    <p>Written by: <%= review.user.first_name %><%= review.content %>With a score of <%= review.rating %></p>
-    <% end %>
-  <% end %>
-  </div>
-  <p> <%= link_to "Check profile", profile_path(@boat.user.profile.slug) %> </p>
-  <p> <%= link_to "Write a review", new_boat_review_path(@boat) %> </p>
-  <% if @boat.user == current_user %>
-    <p> <%= link_to "Add a picture", new_boat_photo_path(@boat) %></p>
-    <p><%= link_to "Remove this boat", boat_path(@boat), method: :delete %></p>
-  <% end %>
 </div>
 
 
-<!-- Container for the image gallery -->
 <div class="slide-container">
 
   <!-- Full-width images with number text -->
