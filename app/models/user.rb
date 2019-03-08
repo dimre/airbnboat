@@ -7,4 +7,14 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :bookings
   has_many :boats, through: :bookings
+  has_one :profile
+
+
+  after_create :create_profile 
+
+
+  def create_profile 
+  	Profile.new(user: self).save
+  end
+  
 end
