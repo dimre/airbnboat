@@ -25,7 +25,7 @@ pedalo = Boat.create(name: "Pedalo bro", country: "England", address: "1 Hyde Pa
 titanic = Boat.create(name: "Titanic", country: "England", address: "1 London Road Southampton", capacity: 12, description:"We might sink - hold on jack", price_per_day: 80, user_id: User.first.id)
 hoboeboat = Boat.create!(name: "Hoboe boat", country: "Belgium", address: "1 Rue de Molenbeek Brussels", capacity: 15, description:"You don't want to rent this", price_per_day: 2, user_id: User.last.id)
 
-batman_pic = Photo.create(remote_photo_url_url: 'http://www.realclearlife.com/wp-content/uploads/2016/11/Batboat-3_1200.jpg', boat: Boat.all[0]})
+batman_pic = Photo.create(remote_photo_url_url: 'http://www.realclearlife.com/wp-content/uploads/2016/11/Batboat-3_1200.jpg', boat: Boat.all[0])
 cousteau_pic = Photo.create(remote_photo_url_url: 'https://www.bateaux.com/src/images/news/articles/ee73cf54413939fc748cb82c45770252.jpg', boat: Boat.all[1])
 pedalo_pic = Photo.create(remote_photo_url_url: 'http://cdn.oboxeditions.com/sites/prod/files/styles/largehd/public/_7.jpeg', boat: Boat.all[2])
 titanic_pic = Photo.create(remote_photo_url_url: 'http://img.over-blog-kiwi.com/1/04/49/45/20181026/ob_6c1a3f_titanic-via-encyclopedia-titanica-2.jpg', boat: Boat.all[3])
