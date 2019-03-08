@@ -4,6 +4,30 @@
 // @import "profile";
 // @import "map";
 
+p {
+  font-size: 24;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 42;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-size: 36;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+
+}
+
+
 * {
   box-sizing: border-box;
 }

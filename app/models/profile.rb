@@ -5,7 +5,7 @@ class Profile < ApplicationRecord
   private 
 
   def make_slug
-  	self.username = self.user.first_name + "_" +  self.user.last_name 
+  	self.username = self.user.first_name + " " +  self.user.last_name 
     self.slug = self.username.parameterize
 
     addon = 1 
