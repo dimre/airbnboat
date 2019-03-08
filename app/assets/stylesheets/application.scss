@@ -13,3 +13,14 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+.title-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
