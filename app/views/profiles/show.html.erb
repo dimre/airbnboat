@@ -1,3 +1,9 @@
 <div class="container">
-  <h1><%= @profile.slug %><%= @profile.username %></h1>s
+  <h1><%= @profile.username %></h1>
+  <p> <strong>First name:</strong>  <%= @profile.user.first_name %><br>
+  	<strong>Last name:</strong> <%= @profile.user.last_name %><br>
+  	<strong>Email:</strong> <%= @profile.user.email %><br>
+  	<br>
+  	<%= cl_image_tag @profile.user.photo_url.url(:show) %>
+  </p>
 </div>
