@@ -7,7 +7,10 @@ import { GinDaHouz } from '../components/slideshowgallery';
 
 changeNavbarOnScroll();
 initMapbox();
+if(document.getElementById('slide_on')){
 GinDaHouz();
+
+}
 import 'flatpickr/dist/flatpickr.css';
 import flatpickr from "flatpickr";
 import { toggleDateInputs } from '../components/booking';
@@ -34,10 +37,17 @@ var nodes_price = [
     document.getElementById('min_price'), // 0
     document.getElementById('max_price')  // 1
 ];
+
+var nodes_value_price = [
+    document.getElementById('min_price_value'), // 0
+    document.getElementById('max_price_value'), // 1
+];
 console.log(nodes_price)
 slider.noUiSlider.on('update', function (values, handle, unencoded, isTap, positions) {
     console.log(values[handle])
+
     nodes_price[handle].value = values[handle];
+    nodes_value_price[handle].innerText = values[handle];
 });
 
 
@@ -56,8 +66,15 @@ var nodes_capacity = [
     document.getElementById('capacity_low'), // 0
     document.getElementById('capacity_high')  // 1
 ];
+
+var nodes_value_capacity = [
+    document.getElementById('capacity_low_value'), // 0
+    document.getElementById('capacity_high_value'), // 1
+];
+
 console.log(nodes_capacity)
 slider.noUiSlider.on('update', function (values, handle, unencoded, isTap, positions) {
     console.log(values[handle])
     nodes_capacity[handle].value = values[handle];
+    nodes_value_capacity[handle].innerText = values[handle];
 });

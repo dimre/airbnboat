@@ -10,7 +10,7 @@ class Profile < ApplicationRecord
 
     addon = 1 
     until Profile.where(slug: self.slug).empty?
-  			self.slug = self.slug + addon 
+  			self.slug = "#{self.slug}#{addon}" 
   			addon += 1  
   	end
   end

@@ -1,36 +1,50 @@
-<h1>Check out our boats</h1>
-<div class="jumbotron">
-  <div id="slider-price">
-    <%= form_tag(boats_path, method: "get", class: 'flex-slider') do %>
-      <%= label_tag :price_per_day, "What is the maximum price you are willing to pay?" %>
-      <%= hidden_field_tag :min_price %>
-      <%= hidden_field_tag :max_price %>
+
+<div class="container_index">
+  <div class="row_left">
+    <h1>Check our boats</h1>
+    <div class="form">
+        <%= form_tag(boats_path, method: "get", class: 'flex-slider') do %>
+        <%= label_tag :price_per_day, "What is the maximum price you are willing to pay?" %>
+        <%= hidden_field_tag :min_price %>
+        <%= hidden_field_tag :max_price %>
+        <div class="filter_bar">
+        <div id="min_price_value">40</div>
+        <div id="max_price_value">60</div>
+        </div>
+        <div id="slider-price">
+        </div>
+    </div>
+    <div class="form">
+        <%= label_tag :capacity, "What capacity would you like to have?" %>
+        <%= hidden_field_tag :capacity_low %>
+        <%= hidden_field_tag :capacity_high %>
+        <div class="filter_bar">
+        <div id="capacity_low_value">8</div>
+        <div id="capacity_high_value">12</div>
+        </div>
+        <div id="slider-capacity"></div>
+        <%= submit_tag("Filter", name: nil) %>
+        <% end %>
+    </div>
   </div>
-</div>
-<div class="jumbotron">
-<div id="slider-capacity">
-    <%= label_tag :capacity, "What capacity would you like to have?" %>
-    <%= hidden_field_tag :capacity_low %>
-    <%= hidden_field_tag :capacity_high %>
-    <%= submit_tag("Filter", name: nil) %>
-    <% end %>
-</div>
+
+  <div class="row_right">
+    <% @boats.each do |boat| %>
+    <div class="card-trip col-xs-12 col-md-4">
+     <%if !boat.photos&.first&.photo_url&.url.nil? %>
+     <%= cl_image_tag boat.photos&.first&.photo_url.url(:index) %>
+     <% else %>
+     <%= image_tag "https://caribbeanseaadventures.com/wp-content/uploads/2016/03/073A8061.jpg" %>
+     <% end %>
+     <div class="card-trip-infos">
+      <div>
+        <h2><%= link_to boat.name, boat_path(boat) %></h2>
+        <p><%= boat.description %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= boat.price_per_day %> euros/day</h2>
+      <%= cl_image_tag boat.user.photo_url.url, class:"card-trip-user avatar-bordered" %>
+    </div>
+  </div>
+  <% end %>
 </div>
 
-<% @boats.each do |boat| %>
- <div class="card-trip col-xs-12 col-md-6">
-   <%if !boat.photos&.first&.photo_url&.url.nil? %>
-     <%= cl_image_tag boat.photos&.first&.photo_url.url(:index) %>
-   <% else %>
-     <%= image_tag "https://caribbeanseaadventures.com/wp-content/uploads/2016/03/073A8061.jpg" %>
-   <% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= link_to boat.name, boat_path(boat) %></h2>
-      <p><%= boat.description %></p>
-    </div>
-    <h2 class="card-trip-pricing"><%= boat.price_per_day %> euros/day</h2>
-    <%= cl_image_tag boat.user.photo_url.url, class:"card-trip-user avatar-bordered" %>
-  </div>
- </div>
-<% end %>
