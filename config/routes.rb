@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [ 'new', 'create']
     resources :reviews, only: ['new', 'create']
   end
-  resources :bookings, only: ['index']
+  resources :bookings, only: ['index', 'destroy']
 end
 
  # my_collection_boats GET    /boats/my_collection(.:format)                                                           boats#my_collection

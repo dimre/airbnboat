@@ -13,8 +13,12 @@
           <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
         </div>
         <%= cl_image_tag booking.boat.user.photo_url.url, class:"card-trip-user avatar-bordered" %>
+        <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure bro?" } do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
       </div>
     </div>
 <% end %>
 </div>
+
 
