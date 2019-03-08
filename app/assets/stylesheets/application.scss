@@ -13,3 +13,70 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+.title-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.boat-info {
+  display: flex;
+  margin: 20px;
+}
+.inbox {
+  padding-left: 0px;
+  list-style: none;
+}
+.message {
+  /* Your turn to design a flexbox message */
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px gray;
+  padding: 10px;
+}
+.message-body {
+  flex-grow: 1;
+  font-size: 12px;
+  padding: 0px 30px;
+}
+.message-body p {
+  color : rgb(10,10,10);
+}
+.message-name {
+  padding: 0px 20px;
+  width: 100px;
+/*  margin-right: 20px;*/
+}
+.message-name h3, p {
+  font-size: 13px;
+}
+.message-status {
+  margin-right: 20px;
+}
+
+.message-status .status {
+  font-weight: bold;
+}
+.status.declined {
+  color: red;
+}
+.status.accepted {
+  color: green;
+}
+.status.pending {
+  color: gray;
+}
+.avatar {
+  border-radius: 50%;
+  width: 60px;
+  margin-left: 20px;
+}
+
