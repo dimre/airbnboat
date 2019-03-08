@@ -7,12 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning boat database..."
 Boat.destroy_all
+Profile.destroy_all
+
 User.destroy_all
 puts "Seeding database..."
 
 dimi = User.create(email: 'dimitri.reisinger@hotmail.com', first_name: "dimi", last_name: "rgr", password: "123456", remote_photo_url_url: 'https://federalitude.files.wordpress.com/2015/02/le-commandant-cousteau-est-reste-tres-longtemps-image-523990-article-ajust_930.jpg')
+dimi.create_profile
 yoni = User.create(email: 'zatalo@live.be', first_name: "yoni", last_name: "zata", password: "123456", remote_photo_url_url: 'https://media.licdn.com/dms/image/C5603AQGOLRnm6PaTiw/profile-displayphoto-shrink_200_200/0?e=1556150400&v=beta&t=c70_vPhtYRwhQhgmeE9i1kZM97RfESK7SkivMqMHQOU')
+yoni.create_profile
 thomas = User.create(email: 'thomas.cortebeeck93@gmail.com', first_name: "thomas", last_name: "cort", password: "123456", remote_photo_url_url: 'https://federalitude.files.wordpress.com/2015/02/le-commandant-cousteau-est-reste-tres-longtemps-image-523990-article-ajust_930.jpg')
+thomas.create_profile
 
 batmoboat = Boat.create(name: "Batmo boat", country: "United States", address: "1 Bleecker Street New York", capacity: 2, description:"The bat boat", price_per_day: 50, user_id: User.last.id)
 cousteauboat = Boat.create(name: "Cousteau boat", country: "France", address: "1 Rue du Port Le Havre", capacity: 5, description:"The red bonnet boat", price_per_day: 25, user_id: User.first.id)
@@ -27,5 +32,3 @@ titanic_pic = Photo.create(remote_photo_url_url: 'http://img.over-blog-kiwi.com/
 hoboe_pic = Photo.create(remote_photo_url_url: 'https://safety4sea.com/wp-content/uploads/2018/09/Kenya-launches-first-boat-built-entirely-from-recycled-plastic-garbage-e1537433132631.jpeg', boat_id: 5)
 
 puts "Database seeded!"
-
-

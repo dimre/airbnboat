@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_171600) do
+ActiveRecord::Schema.define(version: 2019_03_08_111631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,11 +43,13 @@ ActiveRecord::Schema.define(version: 2019_03_07_171600) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "URI"
-    t.string "Pattern"
-    t.string "Controller"
+    t.string "content"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -96,6 +98,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_171600) do
   add_foreign_key "boats", "users"
   add_foreign_key "bookings", "boats"
   add_foreign_key "bookings", "users"
+  add_foreign_key "messages", "users", column: "recipient_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "photos", "boats"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "boats"

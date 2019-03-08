@@ -1,2 +1,50 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.container_index {
+	height: 100%;
+	display: flex;
+}
+
+.row_left {
+	width: 20vw;
+}
+
+.row_left > h1 {
+	margin: 20px;
+}
+
+.row_right {
+	width: 80vw;
+}
+
+.form {
+	height: 250px;
+	padding: 25px;
+}
+
+.filter_bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#min_price_value {
+
+}
+
+#max_price_value {
+
+}
+
+#slider-price {
+
+}
+
+#slider-capacity {
+
+}
+
+.flex-slider {
+
+}
