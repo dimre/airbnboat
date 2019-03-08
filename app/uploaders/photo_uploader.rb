@@ -13,6 +13,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   version :avatar do
     resize_to_fit 60,60
-    cloudinary_transformation radius: 40, format: :png
+    cloudinary_transformation width: 60, height: 60, crop: :fit, format: :png
   end
 end

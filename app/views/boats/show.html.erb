@@ -1,28 +1,28 @@
 <div class="container">
   <div class="title-show">
-    <div class="user-info">
-      <div class="show-avatar">
-        <p><%= cl_image_tag @boat.user.photo_url.url(:avatar)%></p>
-      </div>
-      <div class="user">
-        <p> <%= link_to @boat.user.first_name, profile_path(@boat.user.profile.slug) %> </p>
-      </div>
+    <div class="show-name">
+      <h1><%= @boat.name %></h1>
     </div>
-      <div class="show-name">
-        <h1><%= @boat.name %></h1>
-      </div>
-      <div class="boat-links">
-        <p> <%= link_to "Back to the boats", boats_path, class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %> </p>
-        <p> <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
-        <p> <%= link_to "Write a review", new_boat_review_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %> </p>
-      </div>
+
+    <div class="show-avatar">
+
+      <%= link_to profile_path(@boat.user.profile.slug) do%>
+      <%= cl_image_tag(@boat.user.photo_url.url(:avatar), class: "image_avatar")%>
+        <%end%>
+    </div>
   </div>
+
   <div class="boat-info">
     <div class="boat-carac">
       <p><strong>Description:</strong> <%= @boat.description %> </p>
       <p><strong>Located in: </strong><%= @boat.address.capitalize %> (<%= @boat.country %>)</p>
       <p><strong>Capacity: </strong><%= @boat.capacity %> people</p>
       <p><strong>Price per day:</strong> <%= @boat.price_per_day %> euros </p>
+    </div>
+    <div class="boat-links">
+        <p> <%= link_to "Back to the boats", boats_path, class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %> </p>
+        <p> <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
+        <p> <%= link_to "Write a review", new_boat_review_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %> </p>
       <% if @boat.user == current_user %>
         <p> <%= link_to "Add a picture", new_boat_photo_path(@boat), class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
         <p><%= link_to "Remove this boat", boat_path(@boat), method: :delete, class: "btn btn-primary btn-lg btn-block btn-booking btn-xs" %></p>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="boat-photo">
-    <div class="boat-photo">
+    <div class="boat-photo-so">
       <% @boat.photos.each do |photo|  %>
         <%= cl_image_tag photo.photo_url.url(:show) %>
       <% end %>
