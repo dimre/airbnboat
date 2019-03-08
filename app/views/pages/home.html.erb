@@ -1,11 +1,24 @@
+
+
 <div class="banner">
-  <h1>AirBnBoat</h1>
+ <h1>AirBnBoat</h1>
   <%= form_tag(boats_path, method: "get", class: 'flex-form') do %>
     <%= text_field_tag(:country, nil, type: 'search', placeholder: "Where ?") %>
     <%= date_field_tag(:start_date) %>
     <%= date_field_tag(:end_date) %>
     <%= submit_tag("Search", name: nil) %>
   <% end %>
+
+
+
+    <div class="section">
+      <video autoplay loop muted>
+
+                <source src="https://res.cloudinary.com/dm9vjugh8/video/upload/v1552058956/Boat_-_14028.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
 
 
 <div class="footer">
@@ -21,3 +34,4 @@
   </div>
 </div>
 </div>
+
