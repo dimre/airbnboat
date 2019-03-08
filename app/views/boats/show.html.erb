@@ -40,7 +40,7 @@
 <% @boat.reviews.each do |review| %>
       <ul class="inbox">
         <li class="message">
-          <%= cl_image_tag @boat.user.photo_url.url(:avatar)%>
+          <%= cl_image_tag review.user.photo_url.url(:avatar)%>
           <div class="message-name">
             <h3><%= review.user.first_name.capitalize %></h3>
           </div>
