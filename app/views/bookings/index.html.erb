@@ -9,10 +9,11 @@
         <% end %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= booking.boat.name %></h2>
+          <h2 style="padding-bottom:5px" ><%= link_to booking.boat.name, boat_path(booking.boat) %></h2>
+          <p>Located in <%= booking.boat.country %></p>
           <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+          <p>Total price: <strong>  <%= (booking.boat.price_per_day)*(Date.parse(booking.end_date) - Date.parse(booking.start_date)).to_i %> euros</strong></p>
         </div>
-        <%= cl_image_tag booking.boat.user.photo_url.url, class:"card-trip-user avatar-bordered" %>
         <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure bro?" } do %>
         <i class="fas fa-trash-alt"></i>
         <% end %>
