@@ -13,7 +13,9 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
-
+h1 {
+  opacity: 1;
+}
 .title-show {
   display: flex;
   align-items: center;
